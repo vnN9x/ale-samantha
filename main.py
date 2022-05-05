@@ -30,6 +30,7 @@ def main():
             button02_frame.forget()
             button03_frame.forget()
             button04_frame.forget()
+            button05_frame.forget()
             first_frame.forget()
 
         #first_frame widgets
@@ -73,6 +74,14 @@ def main():
         command=change_to_buttons)
         botao_continue.pack()
 
+        button05_frame = Frame(window)
+        button05_frame.config(bg= "white")
+        label = Label(button05_frame, text=json_data['dentro-botao05'], wraplength=600, bg ='white')
+        label.pack()
+        botao_continue = Button(button05_frame, activebackground='blue', bg='white', justify='center', text= json_data['botao-continue'],
+        command=change_to_buttons)
+        botao_continue.pack()
+
         label = Label(buttons_frame, text='                        ', bg ='white')
         label.grid(row=0, column=1)
         label = Label(buttons_frame, text='                        ', bg ='white')
@@ -111,6 +120,10 @@ def main():
             surprise_button()
             buttons_frame.forget()
 
+        def button05():
+            button05_frame.pack()
+            buttons_frame.forget()
+
         #buttons_frame widgets
         buttons_frame.config(bg= "white")
         botao01 = Button(buttons_frame, activebackground='#00FA9A', bg='white', justify='center', text= json_data['texto-botao01'],
@@ -130,7 +143,7 @@ def main():
         def surprise_button():
             if BTN01_CLICKED and BTN02_CLICKED and BTN03_CLICKED and BTN04_CLICKED:
                 botao05 = Button(buttons_frame, activebackground='#00FA9A', bg='white', justify='center', text= json_data['texto-botao05'],
-            command=button01)
+            command=button05)
                 botao05.grid(row=2, column=1)
             
         window.mainloop()
